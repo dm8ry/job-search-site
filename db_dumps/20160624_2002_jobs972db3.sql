@@ -1,0 +1,465 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql.jobs972.com
+-- Generation Time: Jun 24, 2016 at 10:01 AM
+-- Server version: 5.6.25-log
+-- PHP Version: 7.0.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `jobs972db3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alerts`
+--
+
+CREATE TABLE `alerts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `createdt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifydt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `alerts`
+--
+
+INSERT INTO `alerts` (`id`, `name`, `createdt`, `modifydt`) VALUES
+(1, 'CONTACT_US', '2016-06-19 13:30:26', '2016-06-19 13:30:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `businesslog`
+--
+
+CREATE TABLE `businesslog` (
+  `id` int(11) NOT NULL,
+  `datex` datetime NOT NULL,
+  `alert_id` int(11) NOT NULL,
+  `principal_id` int(11) NOT NULL,
+  `ip_addr` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `the_info` varchar(4000) NOT NULL,
+  `the_page` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `businesslog`
+--
+
+INSERT INTO `businesslog` (`id`, `datex`, `alert_id`, `principal_id`, `ip_addr`, `email`, `the_info`, `the_page`) VALUES
+(1, '2016-06-19 23:27:24', 0, 0, '85.250.131.106', 'dasdasf@fdgdsg.ru', '<html><body>Здравствуйте, Jobs972!<br/><br/>Вам отправлено сообщение с контактной страницы сайта Jobs972!<br/><br/>Дата отправки сообщения: <b>19-06-2016 23:27:24</b><br/>Имя отправителя сообщения: <b>qwerqewr</b><br/>Фамилия отправителя сообщения: <b>qwerqwer</b><br/>Email отправителя сообщения: <b>dasdasf@fdgdsg.ru</b><br/>Тема сообщения: <b>rqwerqwer</b><br/>Сообщение: <b>rqwerqwerqw</b><br/><br/>С уважением,  <br/>Администрация.</body></html>', ''),
+(2, '2016-06-19 23:31:10', 0, 0, '85.250.131.106', 'adsffadsf@fafads.com', '<html><body>Здравствуйте, Jobs972!<br/><br/>Вам отправлено сообщение с контактной страницы сайта Jobs972!<br/><br/>Дата отправки сообщения: <b>19-06-2016 23:31:10</b><br/>Имя отправителя сообщения: <b>qew</b><br/>Фамилия отправителя сообщения: <b>adsfads</b><br/>Email отправителя сообщения: <b>adsffadsf@fafads.com</b><br/>Тема сообщения: <b>dasfasdfasdf</b><br/>Сообщение: <b>asdfasdfasdf</b><br/><br/>С уважением,  <br/>Администрация.</body></html>', 'contactus.php'),
+(3, '2016-06-19 23:32:34', 0, 0, '85.250.131.106', 'qwerqewr@dfdasf.com', '<html><body>Здравствуйте, Jobs972!<br/><br/>Вам отправлено сообщение с контактной страницы сайта Jobs972!<br/><br/>Дата отправки сообщения: <b>19-06-2016 23:32:34</b><br/>Имя отправителя сообщения: <b>werewr</b><br/>Фамилия отправителя сообщения: <b>qewrqewr</b><br/>Email отправителя сообщения: <b>qwerqewr@dfdasf.com</b><br/>Тема сообщения: <b>qwerqewr</b><br/>Сообщение: <b>asdfasfasdf</b><br/><br/>С уважением,  <br/>Администрация.</body></html>', 'contactus.php'),
+(4, '2016-06-19 23:32:56', 0, 0, '85.250.131.106', 'asdfasd@dssss.com', '<html><body>Здравствуйте, Jobs972!<br/><br/>Вам отправлено сообщение с контактной страницы сайта Jobs972!<br/><br/>Дата отправки сообщения: <b>19-06-2016 23:32:56</b><br/>Имя отправителя сообщения: <b>asdfasdfdasf</b><br/>Фамилия отправителя сообщения: <b>dwerdasfdasfs</b><br/>Email отправителя сообщения: <b>asdfasd@dssss.com</b><br/>Тема сообщения: <b>fasdfasf</b><br/>Сообщение: <b>asdfdasf</b><br/><br/>С уважением,  <br/>Администрация.</body></html>', 'contactus.php');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `cat_name` varchar(100) NOT NULL,
+  `cat_name_heb` varchar(100) NOT NULL,
+  `cat_ord` int(11) NOT NULL,
+  `n_pos` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `cat_name`, `cat_name_heb`, `cat_ord`, `n_pos`) VALUES
+(1, 'Administration', 'אדמיניסטרציה', 1, 0),
+(2, 'Internet', 'אינטרנט', 2, 0),
+(3, 'Insurance', 'ביטוח', 3, 0),
+(4, 'Senior / Management', 'בכירים / ניהול', 4, 0),
+(5, 'Professionals', 'בעלי מקצוע', 5, 0),
+(6, 'Training / Teaching', 'הדרכה / הוראה', 6, 0),
+(7, 'QA hitech', 'הייטק-QA', 7, 0),
+(8, 'High-Tech Hardware', 'הייטק-חומרה', 8, 0),
+(9, 'High-Tech General', 'הייטק-כללי', 9, 0),
+(10, 'High-Tech Software', 'הייטק-תוכנה', 10, 0),
+(11, 'Engineering', 'הנדסה', 11, 0),
+(12, 'General', 'כללי', 12, 0),
+(13, 'Finance', 'כספים', 13, 0),
+(14, 'Logistics / Forwarding', 'לוגיסטיקה / שילוח', 14, 0),
+(15, 'Science / Biotech', 'מדעים / ביוטק', 15, 0),
+(16, 'Sales', 'מכירות', 16, 0),
+(17, 'Restaurant / Tourism', 'מסעדנות / תיירות', 17, 0),
+(18, 'Human Resources', 'משאבי אנוש', 18, 0),
+(19, 'Work from home', 'עבודה מהבית', 19, 0),
+(20, 'Design', 'עיצוב', 20, 0),
+(21, 'Attorney', 'עריכת דין', 21, 0),
+(22, 'Advertising / Media', 'פרסום / מדיה', 22, 0),
+(23, 'Vehicle / Transport', 'רכב / תחבורה', 23, 0),
+(24, 'Medical / Health', 'רפואה / בריאות', 24, 0),
+(25, 'Marketing', 'שיווק', 25, 0),
+(26, 'Customer Service', 'שירות לקוחות', 26, 0),
+(27, 'Keeping / Security', 'שמירה / אבטחה', 26, 0),
+(28, 'Industry / Manufacturing', 'תעשיה / ייצור', 28, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE `city` (
+  `id` int(11) NOT NULL,
+  `name_en` varchar(100) NOT NULL,
+  `name_he` varchar(100) NOT NULL,
+  `status` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `name_en`, `name_he`, `status`) VALUES
+(4, 'Akko', 'עכו', '1'),
+(5, 'Afula', 'עפולה', '1'),
+(6, 'Arad', 'ערד', '1'),
+(7, 'Ariel', 'אריאל', '1'),
+(8, 'Ashdod', 'אשדוד', '1'),
+(9, 'Ashkelon', 'אשקלון', '1'),
+(10, 'Bat Yam', 'בת ים', '1'),
+(11, 'Beer Sheva', 'באר שבע', '1'),
+(12, 'Beit Shean', 'בית שאן', '1'),
+(13, 'Beit Shemesh', 'בית שמש', '1'),
+(14, 'Beitar Illit', 'ביתר עילית', '1'),
+(15, 'Bnei Brak', 'בני ברק', '1'),
+(16, 'Dimona', 'דימונה', '1'),
+(17, 'Eilat', 'אילת', '1'),
+(18, 'Elad', 'אלעד', '1'),
+(19, 'Givat Shmuel', 'גבעת שמואל', '1'),
+(20, 'Givatayim', 'גבעתיים', '1'),
+(21, 'Hadera', 'חדרה', '1'),
+(22, 'Haifa', 'חיפה', '1'),
+(23, 'Herzliya', 'הרצליה', '1'),
+(24, 'Hod HaSharon', 'הוד השרון', '1'),
+(25, 'Holon', 'חולון', '1'),
+(26, 'Jerusalem', 'ירושלים', '1'),
+(27, 'Carmiel', 'כרמיאל', '1'),
+(28, 'Yokneam', 'יקנעם', '1'),
+(29, 'Yehud', 'יהוד-מונוסון', '1'),
+(30, 'Yavne', 'יבנה', '1'),
+(31, 'Tirat Carmel', 'טירת כרמל', '1'),
+(32, 'Tira', 'טירה', '1'),
+(33, 'Tiberias', 'טבריה', '1'),
+(34, 'Tel Aviv', 'תל אביב', '1'),
+(35, 'Tamra', 'טמרה', '1'),
+(36, 'Shfaram', 'שפרעם', '1'),
+(37, 'Sderot', 'שדרות', '1'),
+(38, 'Kfar Saba', 'כפר סבא', '1'),
+(39, 'Kfar Yona', 'כפר יונה', '1'),
+(40, 'Kiryat Ata', 'קריית אתא', '1'),
+(41, 'Kiryat Bialik', 'קריית ביאליק', '1'),
+(42, 'Kiryat Gat', 'קריית גת', '1'),
+(43, 'Kiryat Malakhi', 'קריית מלאכי', '1'),
+(44, 'Kiryat Motzkin', 'קריית מוצקין', '1'),
+(45, 'Kiryat Ono', 'קריית אונו', '1'),
+(46, 'Kiryat Shmona', 'קריית שמונה', '1'),
+(47, 'Kiryat Yam', 'קריית ים', '1'),
+(48, 'Lod', 'לוד', '1'),
+(49, 'Maale Adumim', 'מעלה אדומים', '1'),
+(50, 'Migdal HaEmek', 'מגדל העמק', '1'),
+(51, 'Modiin Illit', 'מודיעין עילית', '1'),
+(52, 'Modiin-Maccabim-Reut', 'מודיעין-מכבים-רעות', '1'),
+(53, 'Nahariya', 'נהריה', '1'),
+(54, 'Nazareth', 'נצרת', '1'),
+(55, 'Nazareth Illit', 'נצרת עילית', '1'),
+(56, 'Nesher', 'נשר', '1'),
+(57, 'Ness Ziona', 'נס ציונה', '1'),
+(58, 'Netanya', 'נתניה', '1'),
+(59, 'Netivot', 'נתיבות', '1'),
+(60, 'Ofakim', 'אופקים', '1'),
+(61, 'Or Akiva', 'אור עקיבא', '1'),
+(62, 'Or Yehuda', 'אור יהודה', '1'),
+(63, 'Petah Tikva', 'פתח תקווה', '1'),
+(64, 'Raanana', 'רעננה', '1'),
+(65, 'Rahat', 'רהט', '1'),
+(66, 'Ramat Gan', 'רמת גן', '1'),
+(67, 'Sakhnin', 'סחנין', '1'),
+(68, 'Zefat', 'צפת', '1'),
+(69, 'Rosh HaAyin', 'ראש העין', '1'),
+(70, 'Rishon LeZion', 'ראשון לציון', '1'),
+(71, 'Rehovot', 'רחובות', '1'),
+(72, 'Ramla', 'רמלה', '1'),
+(73, 'Ramat HaSharon', 'רמת השרון', '1'),
+(74, '--', '--', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+CREATE TABLE `company` (
+  `id` int(11) NOT NULL,
+  `createdt` datetime NOT NULL,
+  `modifydt` datetime NOT NULL,
+  `the_name` varchar(100) NOT NULL,
+  `placement_id` int(11) NOT NULL,
+  `photo_logo` varchar(200) NOT NULL,
+  `website` varchar(100) NOT NULL,
+  `num_people` varchar(20) NOT NULL,
+  `the_descrip` text NOT NULL,
+  `the_descrip_heb` text NOT NULL,
+  `address` varchar(2000) NOT NULL,
+  `address_heb` varchar(200) NOT NULL,
+  `phone_1` varchar(20) NOT NULL,
+  `fax_1` varchar(20) NOT NULL,
+  `status` char(1) NOT NULL,
+  `nviews` int(11) NOT NULL DEFAULT '0',
+  `num_positions` int(11) NOT NULL DEFAULT '0',
+  `industry` varchar(100) NOT NULL,
+  `c_type` varchar(100) NOT NULL,
+  `founded` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `createdt`, `modifydt`, `the_name`, `placement_id`, `photo_logo`, `website`, `num_people`, `the_descrip`, `the_descrip_heb`, `address`, `address_heb`, `phone_1`, `fax_1`, `status`, `nviews`, `num_positions`, `industry`, `c_type`, `founded`) VALUES
+(1, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 'DNAmarketingltd', 34, '', 'http://dnamarketingltd.com', '34', 'DNA Marketing LTD was established in order to provide marketing solutions to relocation companies in the US.\r\nOur wide network of Agents, Moving companies, warehouses and employees allow us to provide a wide range of services all over the US 24/7 in a cost effective way.\r\n\r\nWe select each moving company very carefully to ensure all companies operate at the highest level of service, professionalism, and accountability. Each company is independently owned and run, with all of the appropriate licensing. With dedication to providing the customer with a trustworthy and excellent moving experience, we offer a high-end moving service to each customer—and we constantly deliver.', '', 'Hashmonaim 113, Tel-Aviv', '', '077-456-0089', '03-9008639', '1', 15, 0, '', '', ''),
+(4, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 'Ewave', 64, '', 'http://ewave.co.il', '0', '', 'eWave היא ספקית מובילה של פתרונות תוכנה ואינטגרציה, המתמחה בפיתוח ובהטמעת מערכות eBusiness שמטרתן יצירת ערך עסקי אמיתי ללקוח. eWave מספקת שירותים כוללים ליישום אסטרטגיה דיגיטאלית, החל ממתן ייעוץ לגיבוש האסטרטגיה ועד למימושה באמצעות פלטפורמות, כלים ויישומים משלימים. מחלקת הייעוץ האסטרטגי וחווית המשתמש (UX) מייעצת ללקוחותינו כיצד לרתום את המדיה הדיגיטאלית לטובת יעדיהם העסקיים, מסייעת להבין את צרכי המשתמשים ומתרגמת את האסטרטגיה למתווה פעולה מעשי. חטיבות הפיתוח מיישמות את האסטרטגיה, מאפיינות ומפתחות מערכות בארכיטקטורות SOA ו-BPM, תוך שימוש בטכנולוגיות Java, .NET ו-PHP. החברה היא שותפה עסקית של יצרני התוכנה המובילים בעולם: Microsoft, Oracle ו-IBM.', '', 'סניף רעננה - רח\' ירושלים 34  (בניין גמלא B, קומה 2)', '09-9543040', '09-9545070', '1', 10, 0, '', '', ''),
+(5, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 'Taptica', 34, '', 'http://www.taptica.com', '51-200', 'Taptica is a global end-to-end mobile advertising platform that helps the world’s top brands reach their most valuable users with the widest range of traffic sources available today, including social. Our proprietary technology leverages big data, and combined with state-of-the-art machine learning, enables quality media targeting at scale. Taptica creates a single arena in which brands can scale and engage more relevantly with mobile audiences, staying ahead of the competition. We work with more than 450 advertisers including Amazon, Disney, Facebook, Twitter, OpenTable, Expedia, Lyft and Zynga. Taptica is headquartered in Israel with offices in San Francisco, New York, Boston and Beijing. Taptica Ltd. is traded on the London Stock Exchange (AIM: TAP).', '', 'HaHashmonaim Street 21, Tel Aviv-Yafo, Israel', '', '', '', '1', 22, 0, '', '', '2011'),
+(6, '2016-06-24 00:00:00', '2016-06-24 00:00:00', 'Investing.com', 74, '', 'http://www.investing.com', '', 'Investing.com the world\'s fastest growing financial portal, currently ranking in the industry\'s top 5 sites globally, is looking for a full-time Financial Content Writer to develop and create daily, strategic commentary about the U.S. and global financial markets with a regular focus on equities.', '', '', '', '', '', '1', 7, 0, '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `positions`
+--
+
+CREATE TABLE `positions` (
+  `id` int(11) NOT NULL,
+  `createdt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifydt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `principal_id` int(11) NOT NULL,
+  `pos_title` varchar(60) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `pos_desc` text NOT NULL,
+  `nviews` int(11) DEFAULT '0',
+  `napply` int(11) NOT NULL DEFAULT '0',
+  `pos_priority` int(11) NOT NULL DEFAULT '0',
+  `cat_1` int(11) NOT NULL,
+  `s_cat_1` int(11) NOT NULL,
+  `cat_2` int(11) NOT NULL,
+  `s_cat_2` int(11) NOT NULL,
+  `cat_3` int(11) NOT NULL,
+  `s_cat_3` int(11) NOT NULL,
+  `cat_4` int(11) NOT NULL,
+  `s_cat_4` int(11) NOT NULL,
+  `cat_5` int(11) NOT NULL,
+  `s_cat_5` int(11) NOT NULL,
+  `pos_status` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `positions`
+--
+
+INSERT INTO `positions` (`id`, `createdt`, `modifydt`, `principal_id`, `pos_title`, `company_id`, `pos_desc`, `nviews`, `napply`, `pos_priority`, `cat_1`, `s_cat_1`, `cat_2`, `s_cat_2`, `cat_3`, `s_cat_3`, `cat_4`, `s_cat_4`, `cat_5`, `s_cat_5`, `pos_status`) VALUES
+(1, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 0, 'English Speaker', 1, 'Attention English Speakers of Tel-Aviv! Our office is looking to hire sales representatives! Our company provides relocation services to US based clients Shifts are in the evening (based on US time zone) Send an email and attach your resume to our HR Manager', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1'),
+(3, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 0, 'Full-Stack Developer', 4, 'We are looking for a Full-Stack Developer with a focus on web and technology such as: JS, Angular Typescript, React\r\n\r\nGood knowledge in JS and Angular development (+HTML5, CSS3)\r\nDeveloping in C# under IIS\r\nWorking with MS SQL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1'),
+(4, '2016-06-18 00:00:00', '2016-06-18 00:00:00', 0, 'Back-end Java Developer', 5, 'We are looking for a Back-end Java Developer skilled in a highly dynamic web interface development to join our social platform development team. Our social R&D team develops our social ads platform, adding both new infrastructures and new functionalities, working closely with world leading social networks. Development includes taking a feature spec, designing a solution, and implementing the feature end-to-end, DB to UI.\r\n\r\n-4-5 years of proven experience in Java development\r\n-Highly experienced with, application servers, databases, Spring, and Hibernate\r\n-Great understanding in MVC and REST\r\n-Knowledge in – JavaScript, JQuery, CSS, HTML, Bootstrap, Angular – big advantage\r\n-Team player with positive “can do” attitude\r\n-Full time position in Tel-Aviv', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1'),
+(5, '2016-06-18 08:43:45', '2016-06-18 08:43:45', 0, 'Front-End Web application developer', 5, 'This role is for a Front-End Web application developer experienced in building interfaces to rich Internet applications.\r\nWe are looking for an individual skilled in highly dynamic web interface development (HTML, JavaScript, AJAX, jQuery) to join our front-end development team.\r\n\r\n-Highly skilled at front-end engineering using Object-Oriented JavaScript, various JavaScript libraries and micro frameworks (jQuery, Angular, Prototype, Dojo, Backbone, YUI), HTML and CSS\r\n-Well versed in software engineering principles, frameworks and technologies\r\n-Excellent communication skills\r\n-Self-directed team player who thrives in a continually changing environment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1'),
+(6, '2016-06-24 08:25:31', '2016-06-24 08:25:31', 0, 'Financial Content Writer - English', 6, '• Excellent, proven, written and verbal communication skills in American English (at mother tongue level) – MUST\r\n• Understanding and appreciation of U.S. equity/financial markets – Must\r\n• Understanding and appreciation of global financial markets (Currency/Commodity/Indices as well as Equities) – Major Advantage\r\n• Previous financial or business reporting and/or writing experience – Strong Advantage\r\n• Past Trading experience – Major advantage\r\n• Knowledge of Technical Analysis - Major advantage\r\n• Degree in journalism, English or communications, or degree in business, management or finance – Advantage\r\n• Ability to work both independently and as part of a team\r\nFor immediate consideration please forward your resume as well as 5 relevant financial writing samples. Please note that no CVs will be considered without appropriate writing samples.', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `principals`
+--
+
+CREATE TABLE `principals` (
+  `id` int(11) NOT NULL,
+  `princ_email` varchar(100) NOT NULL,
+  `princ_firstname` varchar(100) NOT NULL,
+  `princ_lastname` varchar(100) NOT NULL,
+  `createdt` datetime NOT NULL,
+  `modifydt` datetime NOT NULL,
+  `role` varchar(100) NOT NULL,
+  `status` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `principals`
+--
+
+INSERT INTO `principals` (`id`, `princ_email`, `princ_firstname`, `princ_lastname`, `createdt`, `modifydt`, `role`, `status`) VALUES
+(0, 'contact@jobs972.com', 'System', 'System', '2016-06-19 00:00:00', '2016-06-19 00:00:00', 'System', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_category`
+--
+
+CREATE TABLE `sub_category` (
+  `id` int(11) NOT NULL,
+  `subcat_name` varchar(100) NOT NULL,
+  `subcat_name_heb` varchar(100) NOT NULL,
+  `cat_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sub_category`
+--
+
+INSERT INTO `sub_category` (`id`, `subcat_name`, `subcat_name_heb`, `cat_id`) VALUES
+(1, 'Back Office', 'בק אופיס', 1),
+(2, 'Secretary / The English', 'מזכיר/ה אנגלית', 1),
+(3, 'Senior Secretary', 'מזכיר/ה בכיר/ה', 1),
+(4, 'Secretary / The Hebrew', 'מזכיר/ה עברית', 1),
+(5, 'A Legal Secretary', 'מזכירה משפטית', 1),
+(6, 'Medical Secretary', 'מזכירה רפואית', 1),
+(7, 'Administrative Director', 'מנהל/ת אדמינסטרטיבית', 1),
+(8, 'Office Manager', 'מנהל/ת משרד', 1),
+(9, 'Operator', 'מרכזן/ית', 1),
+(10, 'Personal Assistant', 'עוזר/ת אישי/ת', 1),
+(11, 'Clerk', 'פקיד/ה', 1),
+(12, 'Affiliate Manager', 'Affiliate Manager', 2),
+(13, 'Web Marketing', 'Web Marketing', 2),
+(14, 'Webmaster', 'Webmaster', 2),
+(15, 'Content Writer', 'כתיבת תוכן', 2),
+(16, 'SEM / PPC Specialist', 'מומחה SEM / PPC', 2),
+(17, 'SEO Expert', 'מומחה SEO', 2),
+(18, 'UI / UX Expert', 'מומחה UI / UX', 2),
+(19, 'Online Media Selling', 'מכירת מדיה באינטרנט', 2),
+(20, 'Site Manager', 'מנהל אתר', 2),
+(21, 'Flash / Flex Designer', 'מעצב Flash / Flex', 2),
+(22, 'Web Developer', 'מפתח WEB', 2),
+(23, 'E-commerce', 'סחר אלקטרוני', 2),
+(24, 'Web Design', 'עיצוב אתרים', 2),
+(25, 'Media Buying', 'רכש מדיה', 2),
+(26, 'Insurance Sales People', 'אנשי מכירות ביטוח', 3),
+(27, 'Actuary', 'אקטואר', 3),
+(28, 'Insurance - Management', 'ביטוח - ניהול', 3),
+(29, 'Back-Office / Staff Member', 'בק-אופיס / איש צוות', 3),
+(30, 'Underwriter', 'חתם', 3),
+(31, 'Pension Consultant', 'יועץ פנסיוני', 3),
+(32, 'Customer Portfolio Manager', 'מנהל תיקי לקוחות', 3),
+(33, 'Claims Eliminator', 'מסלק תביעות', 3),
+(34, 'Financial inspector', 'מפקח פיננסי', 3),
+(35, 'Insurance Agent', 'סוכן ביטוח', 3),
+(36, 'Insurance Clerk', 'פקיד/ת ביטוח', 3),
+(37, 'Referent', 'רפרנט', 3),
+(38, 'Insurance Customer Service', 'שירות לקוחות ביטוח', 3),
+(39, 'Appraiser', 'שמאי', 3),
+(40, 'Senior General', 'בכירים כללי', 4),
+(41, 'Business Development Manager', 'מנהל פיתוח עסקי', 4),
+(42, 'Manufacturing Director', 'מנהל/ת ייצור', 4),
+(43, 'Director of Finance', 'מנהל/ת כספים', 4),
+(44, 'Sales Manager', 'מנהל/ת מכירות', 4),
+(45, 'Purchasing Manager', 'מנהל/ת רכש', 4);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `alerts`
+--
+ALTER TABLE `alerts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `businesslog`
+--
+ALTER TABLE `businesslog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name_en` (`name_en`),
+  ADD UNIQUE KEY `name_he` (`name_he`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `positions`
+--
+ALTER TABLE `positions`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `alerts`
+--
+ALTER TABLE `alerts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `businesslog`
+--
+ALTER TABLE `businesslog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT for table `city`
+--
+ALTER TABLE `city`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+--
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `positions`
+--
+ALTER TABLE `positions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

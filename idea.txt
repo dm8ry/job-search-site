@@ -1,0 +1,4 @@
+--- calculate n_of_positions for category
+update category ca
+set ca.n_pos = (select count(1) from positions p  where p.pos_cat = ca.id or p.pos_cat_2 = ca.id  )
+where exists (select 1 from positions p  where p.pos_cat = ca.id)
